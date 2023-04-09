@@ -1,17 +1,59 @@
+<?php
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/style.css">
     <title>Вопрос</title>
 </head>
 <body>
     <div>
         <h1>Страйт</h1>
         <hr>
-        <p>Новый вопрос</p>
     </div>
+    <div>
+        <h2>Новый вопрос<h2>
+        <hr>
+    </div>
+    <form action="/link/question.php" method="POST">
+        <li><a href="/index.php">Лента</a></li>
+        <div>
+            <label for="question">Тема вопроса</label>
+            <br>
+            <input type="text" id="question">
+        </div>
+        <br>
+        <div>
+            <label for="">Теги вопроса</label>
+            <br>
+            <input type="text">
+        </div>
+        <br>
+        <div>
+            <label for="">Суть вопроса</label>
+            <br>
+            <textarea class="field__input textarea" data-required="true" name="body" rows="8" tabindex="3"></textarea>
+        </div>
+        <br>
+        <label for="">Сложность вопроса</label>
+        <br>
+        <select>
+            <option>Простой</option>
+            <option>Средний</option>
+            <option>Сложный</option>
+        </select>
+        <br>
+        <div>
+            <input type="submit" value="Опубликовать">
+            <input type="submit" value="Предросмотр">
+        </div>
+    </form>
 </body>
 </html>
 

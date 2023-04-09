@@ -10,15 +10,16 @@
 <body>
     <div>
         <h1>Страйт</h1>
+        <hr>
+    </div>
+    <div>
         <ul class='qus'>
-            <li><a href="/link/question.php">Задайте вопрос</li>
+            <li><a href="/link/question.php">Задайте вопрос</a></li>
         </ul>
     </div>
     <hr>
 </body>
 </html>
-
-
 
 <?php
 
