@@ -1,6 +1,7 @@
 <?php
-
-
+include_once "../db.php";
+$db = new Database();
+$db->connect();
 ?>
 
 <!DOCTYPE html>
@@ -21,29 +22,29 @@
         <h2>Новый вопрос<h2>
         <hr>
     </div>
-    <form action="/link/question.php" method="POST">
+    <form action="/link/add_question.php" method="POST">
         <li><a href="/index.php">Лента</a></li>
         <div>
             <label for="question">Тема вопроса</label>
             <br>
-            <input type="text" id="question">
+            <input type="text" id="question" name="question_subject">
         </div>
         <br>
         <div>
             <label for="">Теги вопроса</label>
             <br>
-            <input type="text">
+            <input type="text" name="tegs_question">
         </div>
         <br>
         <div>
             <label for="">Суть вопроса</label>
             <br>
-            <textarea class="field__input textarea" data-required="true" name="body" rows="8" tabindex="3"></textarea>
+            <textarea class="field__input textarea" data-required="true" name="key_point" rows="8" tabindex="3"></textarea>
         </div>
         <br>
         <label for="">Сложность вопроса</label>
         <br>
-        <select>
+        <select name="complex_subject">
             <option>Простой</option>
             <option>Средний</option>
             <option>Сложный</option>
