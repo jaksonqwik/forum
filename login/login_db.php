@@ -3,14 +3,25 @@ session_start();
 include_once "../db.php";
 $db = new Database();
 $db->connect();
-$get_user = $db->get_user();
 
-$login = $_POST['login'];
-$pass = $_POST['pass'];
+if (!empty($_POST['login']) && !empty($_POST['pass'])) {
+    $login = $_POST['login'];
+    $pass = $_POST['pass'];
 
-foreach ($get_user as $key => $user) {
-    if($login == $user[1] && password_verify($pass, $user[3])){
-        header("Location: ../index.php");
+    $query = "SELECT * FROM user WHERE login='$login'";
+    $result = mysqli_query($db->conn, $query);
+
+    if (mysqli_num_rows($result) == 1) {
+        $user = mysqli_fetch_assoc($result);
+
+        if (password_verify($pass, $user['pass'])) {
+            $_SESSION['user'] = [
+                "id" => $user['id'],
+                "login" => $user['login'],
+                "email" => $user['email']
+            ];
+            
+            header("Location: index.php");
+        }
     }
 }
-?>
