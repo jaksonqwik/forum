@@ -1,3 +1,9 @@
+<?php
+include_once "../db.php";
+$db = new Database();
+$db->connect();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +21,7 @@
         <h2>Вход на сайт</h2>
         <hr>
     </div>
-    <form action="">
+    <form action="login_db.php" method="POST">
         <div>
             <label for="">Логин</label>
             <br>

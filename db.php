@@ -17,6 +17,16 @@ class Database{
         return $res;
     }
 
+    function get_user(){
+        $res = mysqli_query($this->conn,"SELECT * FROM `user`");
+        return mysqli_fetch_all($res);
+    }
+
+    function get_user_row(){
+        $res = mysqli_query($this->conn,"SELECT * FROM `user`");
+        return mysqli_fetch_row($res);
+    }
+
     function get(){
         $res = mysqli_query($this->conn,"SELECT * FROM `question`");
         return mysqli_fetch_all($res);

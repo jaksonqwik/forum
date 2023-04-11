@@ -22,7 +22,7 @@ $db->connect();
         <h2>Новый вопрос<h2>
         <hr>
     </div>
-    <form action="/link/add_question.php" method="POST">
+    <form action="/question/add_question.php" method="POST">
         <li><a href="/index.php">Лента</a></li>
         <div>
             <label for="question">Тема вопроса</label>
