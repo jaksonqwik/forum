@@ -22,7 +22,7 @@ $user = $db->get_user();
     </div>
     <div>
         <p><?= $_SESSION['user']['login']?></p>
-        <p><?= $_SESSION['user']['email']?></p>
+        <a href="../seting_profil/index.php">Настройки</a>
         <a href="../index.php">Выход</a>
     </div>
     <hr>
