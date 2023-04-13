@@ -21,8 +21,15 @@ $user = $db->get_user();
         <hr>
     </div>
     <div>
-        <img src="../<?= $_SESSION['user']['avatar']; ?>" width="100px" alt="" name="user_photo">
-        <p><?= $_SESSION['user']['login']?></p>
+        <img src="../<?php if(isset($_SESSION['user']['avatar'])){
+            echo $_SESSION['user']['avatar'];
+        } 
+        else{
+           echo "../img/nouser.jpg";
+        }
+        ?>"width="50px" height="50px" alt="" name="user_photo">
+        <?= $_SESSION['user']['login']?>
+        <br>
         <a href="../seting_profil/index.php">Настройки</a>
         <a href="../index.php">Выход</a>
     </div>
