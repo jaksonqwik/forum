@@ -21,6 +21,7 @@ $user = $db->get_user();
         <hr>
     </div>
     <div>
+        <img src="../<?= $_SESSION['user']['avatar']; ?>" width="100px" alt="" name="user_photo">
         <p><?= $_SESSION['user']['login']?></p>
         <a href="../seting_profil/index.php">Настройки</a>
         <a href="../index.php">Выход</a>

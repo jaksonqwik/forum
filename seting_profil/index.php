@@ -26,10 +26,10 @@ $user = $db->get_user();
         <h4>Настройки профиля</h4>
     </div>
     <div>
-        <form action="seting.php" method="POST">
+        <form action="seting.php" method="POST" enctype = "multipart/form-data">
             <label for="">Фото</label>
             <br>
-            <input type="file" name = "photo">
+            <input type="file" name = "avatar">
             <br>
             <label for="">О себе</label>
             <br>
