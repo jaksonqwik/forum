@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "../db.php";
 $db = new Database();
 $db->connect();
@@ -23,7 +24,7 @@ $db->connect();
         <hr>
     </div>
     <form action="/question/add_question.php" method="POST">
-        <li><a href="/index.php">Лента</a></li>
+        <li><a href="<?php echo isset($_SESSION['user']['id']) ? '../login/index.php' : '../index.php'; ?>">Лента</a></li>
         <div>
             <label for="question">Тема вопроса</label>
             <br>

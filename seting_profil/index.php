@@ -3,7 +3,6 @@ session_start();
 include_once "../db.php";
 $db = new Database();
 $db->connect();
-$question = $db->get();
 $user = $db->get_user();
 ?>
 <!DOCTYPE html>
