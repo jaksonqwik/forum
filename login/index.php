@@ -32,6 +32,7 @@ $user = $db->get_user();
         <br>
         <a href="../seting_profil/index.php">Настройки</a>
         <a href="../index.php">Выход</a>
+        <a href="/question/question.php">Задайте вопрос</a>
     </div>
     <hr>
 </body>
@@ -40,7 +41,7 @@ $user = $db->get_user();
 <?php
 
 foreach($question as $key => $questions){
-    echo "<a href='../question/more.php'>$questions[1]</a>"." | ".$questions[4]."<br> Теги: ".$questions[2];
+    echo "<a href='../question/more.php?id=$questions[0]'>$questions[1]</a>"." | ".$questions[4]."<br> Теги: ".$questions[2];
     echo "<hr>";
 }
 

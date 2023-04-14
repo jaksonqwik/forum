@@ -5,6 +5,7 @@ $db = new Database();
 $db->connect();
 $question = $db->get();
 $user = $db->get_user();
+unset($_SESSION['user']['id']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +35,7 @@ $user = $db->get_user();
 <?php
 
 foreach($question as $key => $questions){
-    echo "<a href='question/more.php'>$questions[1]</a>"." | ".$questions[4]."<br> Теги: ".$questions[2];
+    echo "<a href='question/more.php?id=$questions[0]'>$questions[1]</a>"." | ".$questions[4]."<br> Теги: ".$questions[2];
     echo "<hr>";
 }
 

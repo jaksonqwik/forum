@@ -2,7 +2,7 @@
 include_once "../db.php";
 $db = new Database();
 $db->connect();
-$quesion = $db->get_questions();
+$quesion = $db->get();
 
 $question_subject = $_POST['question_subject'];
 $tegs_question = $_POST['tegs_question'];
