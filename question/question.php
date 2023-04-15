@@ -16,7 +16,7 @@ $db->connect();
 </head>
 <body>
     <div>
-        <h1>ITForum</h1>
+        <h1>IT-Forum</h1>
         <hr>
     </div>
     <div>

@@ -24,7 +24,7 @@ if(isset($_GET['id'])){
 </head>
 <body>
     <div>
-        <h1>ITForum</h1>
+        <h1>IT-Forum</h1>
         <hr>
     </div>
     <a href="<?php echo isset($_SESSION['user']['id']) ? '../login/index.php' : '../index.php'; ?>">Лента</a>
@@ -44,18 +44,21 @@ if(isset($_GET['id'])){
                 echo "<h3>Ответы:</h3>";
                 echo "<ul>";
                 while ($row = mysqli_fetch_assoc($res)) {
-                    echo "<li>" . $row['text'] . "</li>";
+                    echo "<hr>";
+                    echo "<p>" . $row['text'] . "<p>";
                 }
                 echo "</ul>";
             } else {
                 echo "Нет ответов на этот вопрос.";
+                echo "<hr>";
             }
         }
         ?>
     </div>
     <form action="answer.php" method="POST">
-        <input type="text" name = "answer" placeholder="Ответить">
+        <textarea name="answer" placeholder="Ответить"></textarea>
         <input type="hidden" name="question_id" value="<?php echo $question['id']; ?>">
+        <br>
         <input type="submit" name="btn" value="Отправить">
     </form>
 </body>

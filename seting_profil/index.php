@@ -15,7 +15,7 @@ $user = $db->get_user();
 </head>
 <body>
     <div>
-        <h1>ITForum</h1>
+        <h1>IT-Forum</h1>
         <hr>
     </div>
     <div>
@@ -27,17 +27,23 @@ $user = $db->get_user();
     </div>
     <div>
         <form action="seting.php" method="POST" enctype = "multipart/form-data">
-            <label for="">Фото</label>
+            <div>
+                <label for="">Фото</label>
+                <br>
+                <input type="file" name = "avatar">
+            </div>
             <br>
-            <input type="file" name = "avatar">
+            <div>
+                <label for="">Кратко о себе</label>
+                <br>
+                <input type="text" name = "about_me">
+            </div>
             <br>
-            <label for="">О себе</label>
-            <br>
-            <input type="text" name = "about_me">
-            <br>
-            <label for="">Страна</label>
-            <br>
-            <input type="text" name = "country">
+            <div>
+                <label for="">Страна</label>
+                <br>
+                <input type="text" name = "country">
+            </div>
             <br>
             <input type="submit" value="Сохранить">
         </form>

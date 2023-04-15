@@ -5,7 +5,7 @@ $db->connect();
 $quesion = $db->answer();
 
 if(isset($_POST['btn'])){
-    $answer = $_POST['answer'];
+    $answer = nl2br($_POST['answer']);
     $question_id = $_POST['question_id'];
     $sql = "INSERT INTO `answer`(`id`, `question_id`, `text`) VALUES (NULL,'$question_id','$answer')";
     mysqli_query($db->conn, $sql); 
