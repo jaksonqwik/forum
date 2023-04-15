@@ -19,7 +19,9 @@ if (!empty($_POST['login']) && !empty($_POST['pass'])) {
                 "id" => $user['id'],
                 "login" => $user['login'],
                 "email" => $user['email'],
-                "avatar" => $user['avatar']
+                "avatar" => $user['avatar'],
+                "about_me" => $user['about_me'],
+                "country" => $user['country']
             ];
             
             header("Location: index.php");

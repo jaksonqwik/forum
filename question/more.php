@@ -4,6 +4,13 @@ include_once "../db.php";
 $db = new Database();
 $db->connect();
 $question = $db->get();
+
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+    $sql = "SELECT * FROM `question` WHERE id=$id";
+    $res = mysqli_query($db->conn, $sql);
+    $question = mysqli_fetch_assoc($res);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +19,7 @@ $question = $db->get();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вопрос</title>
+    <title><?php echo $question['question_subject']; ?></title>
 </head>
 <body>
     <div>
@@ -20,17 +27,15 @@ $question = $db->get();
         <hr>
     </div>
     <a href="<?php echo isset($_SESSION['user']['id']) ? '../login/index.php' : '../index.php'; ?>">Лента</a>
-    <?php
-   if(isset($_GET['id'])){
-    $id = $_GET['id'];
-    $sql = "SELECT * FROM `question` WHERE id=$id";
-    $res = mysqli_query($db->conn, $sql);
-    $question = mysqli_fetch_assoc($res);
-    }
-    ?>
+    <hr>
     <h2><?php echo $question['question_subject']; ?></h2>
     <p>Теги: <?php echo $question['tegs_question']; ?></p>
     <p>Суть вопроса: <?php echo $question['key_point']; ?></p>
-    <a href="">Ответить</a>
+    <hr>
+    <form action="answer.php" method="POST">
+        <input type="text" name = "answer" placeholder="Ответить">
+        <input type="hidden" name="question_id" value="<?php echo $question['id']; ?>">
+        <input type="submit" name="btn" value="Отправить">
+    </form>
 </body>
 </html>

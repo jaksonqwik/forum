@@ -6,14 +6,14 @@ $db->connect();
 $question = $db->get();
 $user = $db->get_user();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style/style.css">
-    <title>Лента</title>
+    <title>Профиль пользователя</title>
 </head>
 <body>
     <div>
@@ -28,21 +28,16 @@ $user = $db->get_user();
            echo "../img/nouser.jpg";
         }
         ?>"width="50px" height="50px" alt="" name="user_photo">
-        <a href="../seting_profil/profil.php"><?= $_SESSION['user']['login']?></a> 
+        <?= $_SESSION['user']['login']?>
         <br>
-        <a href="../seting_profil/index.php">Настройки</a>
+        <div>
+            <p>О себе: <?= $_SESSION['user']['about_me']?></p>
+            <p>Страна: <?= $_SESSION['user']['country']?></p>
+        </div>
+        <a href="index.php">Настройки</a>
         <a href="../index.php">Выход</a>
-        <a href="/question/question.php">Задайте вопрос</a>
+        <a href="<?php echo isset($_SESSION['user']['id']) ? '../login/index.php' : '../index.php'; ?>">Лента</a>
     </div>
-    <hr>
+    <hr> 
 </body>
 </html>
-
-<?php
-
-foreach($question as $key => $questions){
-    echo "<a href='../question/more.php?id=$questions[0]'>$questions[1]</a>"." | ".$questions[4]."<br> Теги: ".$questions[2];
-    echo "<hr>";
-}
-
-?>

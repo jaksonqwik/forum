@@ -26,10 +26,10 @@ class Database{
         return mysqli_fetch_all($res);
     }
 
-    // function get_questions_row(){
-    //     $res = mysqli_query($this->conn,"SELECT * FROM `question`");
-    //     return mysqli_fetch_row($res);
-    // }
+    function answer(){
+        $res = mysqli_query($this->conn,"SELECT * FROM `answer`");
+        return mysqli_fetch_row($res);
+    }
 
     function close(){
         $this->conn->close();
