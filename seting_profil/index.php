@@ -20,6 +20,7 @@ $user = $db->get_user();
     </div>
     <div>
         <a href="../../login/index.php">Лента</a>
+        <a href="profil.php">Профиль</a>
     </div>
     <div>
         <h4>Настройки профиля</h4>

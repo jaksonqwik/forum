@@ -4,6 +4,7 @@ include_once "../db.php";
 $db = new Database();
 $db->connect();
 $question = $db->get();
+$answer = $db->answer();
 
 if(isset($_GET['id'])){
     $id = $_GET['id'];
@@ -32,6 +33,26 @@ if(isset($_GET['id'])){
     <p>Теги: <?php echo $question['tegs_question']; ?></p>
     <p>Суть вопроса: <?php echo $question['key_point']; ?></p>
     <hr>
+    <div>
+        <?php
+        if(isset($_GET['id'])){
+            $answer_id = $_GET['id'];
+            $sql = "SELECT * FROM `answer` WHERE question_id=$answer_id";
+            $res = mysqli_query($db->conn, $sql);
+
+            if (mysqli_num_rows($res) > 0) {
+                echo "<h3>Ответы:</h3>";
+                echo "<ul>";
+                while ($row = mysqli_fetch_assoc($res)) {
+                    echo "<li>" . $row['text'] . "</li>";
+                }
+                echo "</ul>";
+            } else {
+                echo "Нет ответов на этот вопрос.";
+            }
+        }
+        ?>
+    </div>
     <form action="answer.php" method="POST">
         <input type="text" name = "answer" placeholder="Ответить">
         <input type="hidden" name="question_id" value="<?php echo $question['id']; ?>">

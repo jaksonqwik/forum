@@ -53,7 +53,6 @@ $db->connect();
         <br>
         <div>
             <input type="submit" value="Опубликовать">
-            <input type="submit" value="Предросмотр">
         </div>
     </form>
 </body>
