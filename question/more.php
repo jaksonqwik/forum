@@ -24,7 +24,7 @@ if(isset($_GET['id'])){
 </head>
 <body>
     <div>
-        <h1>InfoForum</h1>
+        <h1>ITForum</h1>
         <hr>
     </div>
     <a href="<?php echo isset($_SESSION['user']['id']) ? '../login/index.php' : '../index.php'; ?>">Лента</a>
