@@ -11,7 +11,7 @@ if(isset($_GET['id'])){
     $sql = "SELECT * FROM `question` WHERE id=$id";
     $res = mysqli_query($db->conn, $sql);
     $question = mysqli_fetch_assoc($res);
-    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -37,29 +37,45 @@ if(isset($_GET['id'])){
         <?php
         if(isset($_GET['id'])){
             $answer_id = $_GET['id'];
+            $user_id = isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : null; // убедимся, что ключ 'id' существует в массиве $_SESSION['user']
             $sql = "SELECT * FROM `answer` WHERE question_id=$answer_id";
             $res = mysqli_query($db->conn, $sql);
-
             if (mysqli_num_rows($res) > 0) {
                 echo "<h3>Ответы:</h3>";
-                echo "<ul>";
                 while ($row = mysqli_fetch_assoc($res)) {
+                    $user_sql = "SELECT * FROM `user` WHERE id=" . $row['user_id'];
+                    $user_res = mysqli_query($db->conn, $user_sql);
+                    $user = mysqli_fetch_assoc($user_res);
                     echo "<hr>";
-                    echo "<p>" . $row['text'] . "<p>";
+                    echo "<p>Ответил(а): <br>" . "<img src=../" . $user['avatar'] . " 
+                    width='35px' height='35px' alt='' name='user_photo'>" . $user['login']. "</p>";
+                    echo "<ul>";
+                    echo "<p>" . $row['text'] . "</p>";
+                    echo "</ul>";
                 }
-                echo "</ul>";
-            } else {
+            }
+            else {
                 echo "Нет ответов на этот вопрос.";
                 echo "<hr>";
             }
         }
         ?>
     </div>
-    <form action="answer.php" method="POST">
-        <textarea name="answer" placeholder="Ответить"></textarea>
-        <input type="hidden" name="question_id" value="<?php echo $question['id']; ?>">
+    <?php
+    if(isset($_SESSION['user']['id'])){
+        echo "
+        <form action='answer.php' method='POST'>
+        <textarea name='answer' placeholder='Ответить'></textarea>
+        <input type='hidden' name='question_id' value='" . $question['id'] . "'>
+        <input type='hidden' name='user_id' value='" . (isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : '') . "'>
         <br>
-        <input type="submit" name="btn" value="Отправить">
-    </form>
+        <input type='submit' name='btn' value='Отправить'>
+        </form>
+        ";
+    }
+    else{
+        
+    }
+    ?>
 </body>
 </html>
