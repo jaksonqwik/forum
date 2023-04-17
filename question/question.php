@@ -52,7 +52,8 @@ $db->connect();
         </select>
         <br>
         <div>
-            <input type="submit" value="Опубликовать">
+            <input type="hidden" name="user_id" value="<?php isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : ''?>">
+            <input type="submit" value="Опубликовать" name="btn_q">
         </div>
     </form>
 </body>
