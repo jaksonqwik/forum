@@ -18,7 +18,7 @@ unset($_SESSION['user']['id']);
 </head>
 <body>
     <div>
-        <h1>IT-Forum</h1>
+        <span><h1>IT-Forum</h1></span>
         <ul class='qus'>
             <li><a href="login/login.php">Вход</a></li>
             <li><a href="register/register.php">Регистрация</a></li>
