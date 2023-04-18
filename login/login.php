@@ -14,7 +14,7 @@ $db->connect();
 </head>
 <body>
     <div>
-        <h1>ITForum</h1>
+        <h1>IT-Forum</h1>
         <hr>
     </div>
     <div>
@@ -32,10 +32,12 @@ $db->connect();
             <br>
             <input type="password" name="pass">
         </div>
+        <br>
         <div>
             <input type="submit" value="Войти">
         </div>
     </form>
+    <br>
     <a href="../register/register.php">Регестрация</a>
     <a href="../index.php">Лента</a>
 </body>

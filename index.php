@@ -19,13 +19,9 @@ unset($_SESSION['user']['id']);
 <body>
     <div>
         <h1>IT-Forum</h1>
-        <hr>
-    </div>
-    <div>
         <ul class='qus'>
             <li><a href="login/login.php">Вход</a></li>
             <li><a href="register/register.php">Регистрация</a></li>
-            <li><a href="/question/question.php">Задайте вопрос</a></li>
         </ul>
     </div>
     <hr>
@@ -33,10 +29,13 @@ unset($_SESSION['user']['id']);
 </html>
 
 <?php
-
 foreach($question as $key => $questions){
-    echo "<a href='question/more.php?id=$questions[0]'>$questions[1]</a>"." | ".$questions[4]."<br> Теги: ".$questions[2];
+    echo "<a href='../question/more.php?id=$questions[0]'>$questions[1]</a>"." | ".$questions[4]."<br> Теги: ".$questions[2];
+    echo "<br> Задал(а) вопрос: ";
+    $user_id = $questions[5];
+    $sql = "SELECT * FROM `user` WHERE id=$user_id";
+    $user = mysqli_fetch_assoc(mysqli_query($db->conn, $sql));
+    echo "<img src='../". (isset($user['avatar']) ? $user['avatar'] : "img/nouser.jpg") . "' width='35px' height='35px' alt='' name='user_photo'> <a href='../login/check_user.php?id={$user['id']}'>".$user['login']."</a><br>";
     echo "<hr>";
 }
-
 ?>
