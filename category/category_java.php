@@ -33,21 +33,25 @@ $user = $db->get_user();
         <a href="../seting_profil/index.php">Настройки</a>
         <a href="../index.php">Выход</a>
         <a href="/question/question.php">Задайте вопрос</a>
+        <a href="<?php echo isset($_SESSION['user']['id']) ? '../login/index.php' : '../index.php'; ?>">Назад</a>
     </div>
     <hr>
-    <ul>
-        <li><a href="../category/index.php">Все темы</a></li>
-        <li><a href="../category/category_php.php">PHP</a></li>
-        <li><a href="../category/category_js_ts.php">JS/TS</a></li>
-        <li><a href="../category/category_html_css.php">HTML/CSS</a></li>
-        <li><a href="../category/category_c_c++.php">C/C++</a></li>
-        <li><a href="../category/category_py.php">Python</a></li>
-        <li><a href="../category/category_java.php">Java</a></li>
-        <li><a href="../category/category_go.php">Go</a></li>
-        <li><a href="../category/category_rust.php">Rust</a></li>
-        <li><a href="../category/category_c_sharp.php">C#</a></li>
-        <li><a href="../category/category_r.php">R</a></li>
-        <li><a href="../category/category_kotlin_swift.php">Kotlin/Swift</a></li>
-    </ul>
 </body>
 </html>
+
+<?php
+$sql = "SELECT * FROM `question` WHERE `category`='Java'";
+$result = mysqli_query($db->conn, $sql);
+if (mysqli_num_rows($result) > 0) {
+    foreach($result as $key => $questions){
+        echo "<a href='../question/more.php?id={$questions['id']}'>{$questions['question_subject']}</a> | {$questions['complex_subject']}<br> Тема: {$questions['category']}<br> Задал(а) вопрос: ";
+        $user_id = $questions['user_id_question'];
+        $sql = "SELECT * FROM `user` WHERE id=$user_id";
+        $user = mysqli_fetch_assoc(mysqli_query($db->conn, $sql));
+        echo "<img src='../". (isset($user['avatar']) ? $user['avatar'] : "img/nouser.jpg") . "' width='35px' height='35px' alt='' name='user_photo'> <a href='../login/check_user.php?id={$user['id']}'>".$user['login']."</a><br>";
+        echo "<hr>";
+    }
+} else {
+    echo "Нет вопросов с темой: Java.";
+}
+?>

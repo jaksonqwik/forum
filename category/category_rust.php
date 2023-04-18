@@ -40,7 +40,7 @@ $user = $db->get_user();
 </html>
 
 <?php
-$sql = "SELECT * FROM `question` WHERE `category`='PHP'";
+$sql = "SELECT * FROM `question` WHERE `category`='Rust'";
 $result = mysqli_query($db->conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     foreach($result as $key => $questions){
@@ -52,6 +52,6 @@ if (mysqli_num_rows($result) > 0) {
         echo "<hr>";
     }
 } else {
-    echo "Нет вопросов с темой 'PHP'";
+    echo "Нет вопросов с темой: Rust.";
 }
 ?>
