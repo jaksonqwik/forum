@@ -1,34 +1,11 @@
 <?php
 session_start();
-include_once "db.php";
+include_once "../db.php";
 $db = new Database();
 $db->connect();
 $question = $db->get();
 $user = $db->get_user();
-unset($_SESSION['user']['id']);
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style/style.css">
-    <title>Лента</title>
-</head>
-<body>
-    <div>
-        <span><h1>IT-Forum</h1></span>
-        <ul class='qus'>
-            <li><a href="login/login.php">Вход</a></li>
-            <li><a href="register/register.php">Регистрация</a></li>
-        </ul>
-    </div>
-    <hr>
-</body>
-</html>
 
-<?php
 foreach($question as $key => $questions){
     echo "<a href='../question/more.php?id=$questions[0]'>$questions[1]</a>"." | ".$questions[3]."<br> Тема: ".$questions[5];
     echo "<br> Задал(а) вопрос: ";

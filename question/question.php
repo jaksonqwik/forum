@@ -25,16 +25,28 @@ $db->connect();
     </div>
     <form action="/question/add_question.php" method="POST">
         <li><a href="<?php echo isset($_SESSION['user']['id']) ? '../login/index.php' : '../index.php'; ?>">Лента</a></li>
+        <br>
         <div>
-            <label for="question">Тема вопроса</label>
+            <label for="question">Вопрос</label>
             <br>
             <input type="text" id="question" name="question_subject">
         </div>
         <br>
         <div>
-            <label for="">Теги вопроса</label>
-            <br>
-            <input type="text" name="tegs_question">
+            <label for="">Тема:</label>
+            <select name="category">
+                <option>Python</option>
+                <option>Java</option>
+                <option>C/C++</option>
+                <option>C#</option>
+                <option>PHP</option>
+                <option>JS/TS</option>
+                <option>Rust</option>
+                <option>Go</option>
+                <option>R</option>
+                <option>Swift</option>
+                <option>Kotlin</option>
+            </select>
         </div>
         <br>
         <div>

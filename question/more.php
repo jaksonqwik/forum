@@ -30,7 +30,7 @@ if(isset($_GET['id'])){
     <a href="<?php echo isset($_SESSION['user']['id']) ? '../login/index.php' : '../index.php'; ?>">Лента</a>
     <hr>
     <h2><?php echo $question['question_subject']; ?></h2>
-    <p>Теги: <?php echo $question['tegs_question']; ?></p>
+    <p>Тема: <?php echo $question['category']; ?></p>
     <p>Суть вопроса: <?php echo $question['key_point']; ?></p>
     <hr>
     <div>
