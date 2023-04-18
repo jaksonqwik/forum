@@ -41,11 +41,11 @@ $db->connect();
                 <option>C#</option>
                 <option>PHP</option>
                 <option>JS/TS</option>
+                <option>HTML/CSS</option>
                 <option>Rust</option>
                 <option>Go</option>
                 <option>R</option>
-                <option>Swift</option>
-                <option>Kotlin</option>
+                <option>Kotlin/Swift</option>
             </select>
         </div>
         <br>
