@@ -36,7 +36,8 @@ $user = $db->get_user();
     </div>
     <hr>
     <ul>
-        <li><a href="../category/index.php">Категория</a></li>
+        <li><a href="../category/index.php">Все темы</a></li>
+        <li><a href="../category/gategory_php.php">PHP</a></li>
     </ul>
 </body>
 </html>
