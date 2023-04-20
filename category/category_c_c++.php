@@ -44,6 +44,8 @@ $sql = "SELECT * FROM `question` WHERE `category`='C/C++'";
 $result = mysqli_query($db->conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     foreach($result as $key => $questions){
+        echo "Дата: ". date('Y-m-d H:i:s', $questions['data']);
+        echo "<br>";
         echo "<a href='../question/more.php?id={$questions['id']}'>{$questions['question_subject']}</a> | {$questions['complex_subject']}<br> Тема: {$questions['category']}<br> Задал(а) вопрос: ";
         $user_id = $questions['user_id_question'];
         $sql = "SELECT * FROM `user` WHERE id=$user_id";

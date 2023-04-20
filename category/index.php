@@ -42,6 +42,8 @@ $user = $db->get_user();
 
 <?php
 foreach($question as $key => $questions){
+    echo "Дата: ". date('Y-m-d H:i:s', $questions[6]);
+    echo "<br>";
     echo "<a href='../question/more.php?id=$questions[0]'>$questions[1]</a>"." | ".$questions[3]."<br> Тема: ".$questions[5];
     echo "<br> Задал(а) вопрос: ";
     $user_id = $questions[4];

@@ -27,4 +27,8 @@ if (!empty($_POST['login']) && !empty($_POST['pass'])) {
             header("Location: index.php");
         }
     }
+    elseif(mysqli_num_rows($result) == 0){
+        $msg = $_SESSION['msg'] = "Пороль или логин не верный";
+        header("Location: login.php");
+    }
 }

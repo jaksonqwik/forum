@@ -11,9 +11,10 @@ if(isset($_POST['btn_q'])){
     $key_point = $_POST['key_point'];
     $complex_subject = $_POST['complex_subject'];
     $user_id = $_SESSION['user']['id'];
+    $date_created = time();
 
-    $sql = "INSERT INTO `question`(`id`, `question_subject`, `key_point`, `complex_subject`, `user_id_question`, `category`) 
-    VALUES (NULL,'$question_subject','$key_point','$complex_subject','$user_id','$category')";
+    $sql = "INSERT INTO `question`(`id`, `question_subject`, `key_point`, `complex_subject`, `user_id_question`, `category`, `data`) 
+    VALUES (NULL,'$question_subject','$key_point','$complex_subject','$user_id','$category', $date_created)";
     mysqli_query($db->conn, $sql);
     header("Location: ../login/index.php");
     $db->close();

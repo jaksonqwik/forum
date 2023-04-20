@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "../db.php";
 $db = new Database();
 $db->connect();
@@ -37,6 +38,13 @@ $db->connect();
             <input type="submit" value="Войти">
         </div>
     </form>
+    <br>
+        <?php
+        if(isset($_SESSION['msg'])){
+            echo $_SESSION['msg'];
+            unset($_SESSION['msg']);
+        } 
+        ?>
     <br>
     <a href="../register/register.php">Регестрация</a>
     <a href="../index.php">Лента</a>

@@ -25,8 +25,8 @@ unset($_SESSION['user']['id']);
         </ul>
     </div>
     <hr>
-    <div class="category">
-        <ul>
+    <div>
+        <ul class="category">
             <li><a href="../category/index.php">Все темы</a></li>
             <li><a href="../category/category_php.php">PHP</a></li>
             <li><a href="../category/category_js_ts.php">JS/TS</a></li>
