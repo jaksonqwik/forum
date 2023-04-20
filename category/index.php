@@ -22,18 +22,18 @@ $user = $db->get_user();
         <hr>
     </div>
     <div>
-        <img src="../<?php if(isset($_SESSION['user']['avatar'])){
-            echo $_SESSION['user']['avatar'];
-        } 
-        else{
-           echo "../img/nouser.jpg";
-        }
-        ?>"width="50px" height="50px" alt="" name="user_photo">
-        <a href="../seting_profil/profil.php"><?= $_SESSION['user']['login']?></a> 
-        <br>
-        <a href="../seting_profil/index.php">Настройки</a>
-        <a href="../index.php">Выход</a>
-        <a href="/question/question.php">Задайте вопрос</a>
+        <?php
+        if(isset($_SESSION['user']['id'])){
+            echo "<img src='../". (isset($_SESSION['user']['avatar']) ? $_SESSION['user']['avatar'] : "../img/nouser.jpg") . "' width='50px' height='50px' alt='' name='user_photo'>
+                  <a href='../seting_profil/profil.php'>" . $_SESSION['user']['login'] . "</a>";
+            echo "
+                <br>
+                <a href='../seting_profil/index.php'>Настройки</a>
+                <a href='../index.php'>Выход</a>
+                <a href='/question/question.php'>Задайте вопрос</a>
+            ";
+        }        
+        ?>
         <a href="<?php echo isset($_SESSION['user']['id']) ? '../login/index.php' : '../index.php'; ?>">Назад</a>
     </div>
     <hr>

@@ -25,17 +25,21 @@ unset($_SESSION['user']['id']);
         </ul>
     </div>
     <hr>
+    <div class="category">
+        <ul>
+            <li><a href="../category/index.php">Все темы</a></li>
+            <li><a href="../category/category_php.php">PHP</a></li>
+            <li><a href="../category/category_js_ts.php">JS/TS</a></li>
+            <li><a href="../category/category_html_css.php">HTML/CSS</a></li>
+            <li><a href="../category/category_c_c++.php">C/C++</a></li>
+            <li><a href="../category/category_py.php">Python</a></li>
+            <li><a href="../category/category_java.php">Java</a></li>
+            <li><a href="../category/category_go.php">Go</a></li>
+            <li><a href="../category/category_rust.php">Rust</a></li>
+            <li><a href="../category/category_c_sharp.php">C#</a></li>
+            <li><a href="../category/category_r.php">R</a></li>
+            <li><a href="../category/category_kotlin_swift.php">Kotlin/Swift</a></li>
+        </ul>
+    </div>
 </body>
 </html>
-
-<?php
-foreach($question as $key => $questions){
-    echo "<a href='../question/more.php?id=$questions[0]'>$questions[1]</a>"." | ".$questions[3]."<br> Тема: ".$questions[5];
-    echo "<br> Задал(а) вопрос: ";
-    $user_id = $questions[4];
-    $sql = "SELECT * FROM `user` WHERE id=$user_id";
-    $user = mysqli_fetch_assoc(mysqli_query($db->conn, $sql));
-    echo "<img src='../". (isset($user['avatar']) ? $user['avatar'] : "img/nouser.jpg") . "' width='35px' height='35px' alt='' name='user_photo'> <a href='../login/check_user.php?id={$user['id']}'>".$user['login']."</a><br>";
-    echo "<hr>";
-}
-?>

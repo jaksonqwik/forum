@@ -35,19 +35,21 @@ $user = $db->get_user();
         <a href="/question/question.php">Задайте вопрос</a>
     </div>
     <hr>
-    <ul>
-        <li><a href="../category/index.php">Все темы</a></li>
-        <li><a href="../category/category_php.php">PHP</a></li>
-        <li><a href="../category/category_js_ts.php">JS/TS</a></li>
-        <li><a href="../category/category_html_css.php">HTML/CSS</a></li>
-        <li><a href="../category/category_c_c++.php">C/C++</a></li>
-        <li><a href="../category/category_py.php">Python</a></li>
-        <li><a href="../category/category_java.php">Java</a></li>
-        <li><a href="../category/category_go.php">Go</a></li>
-        <li><a href="../category/category_rust.php">Rust</a></li>
-        <li><a href="../category/category_c_sharp.php">C#</a></li>
-        <li><a href="../category/category_r.php">R</a></li>
-        <li><a href="../category/category_kotlin_swift.php">Kotlin/Swift</a></li>
-    </ul>
+    <div class="category">
+        <ul>
+            <li><a href="../category/index.php">Все темы</a></li>
+            <li><a href="../category/category_php.php">PHP</a></li>
+            <li><a href="../category/category_js_ts.php">JS/TS</a></li>
+            <li><a href="../category/category_html_css.php">HTML/CSS</a></li>
+            <li><a href="../category/category_c_c++.php">C/C++</a></li>
+            <li><a href="../category/category_py.php">Python</a></li>
+            <li><a href="../category/category_java.php">Java</a></li>
+            <li><a href="../category/category_go.php">Go</a></li>
+            <li><a href="../category/category_rust.php">Rust</a></li>
+            <li><a href="../category/category_c_sharp.php">C#</a></li>
+            <li><a href="../category/category_r.php">R</a></li>
+            <li><a href="../category/category_kotlin_swift.php">Kotlin/Swift</a></li>
+        </ul>
+    </div>
 </body>
 </html>
