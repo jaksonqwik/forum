@@ -43,10 +43,10 @@ if (isset($_SESSION['last_active']) && (time() - $_SESSION['last_active'] > $tim
             <p>О себе: <?php echo $user['about_me']?></p>
             <p>Страна: <?php echo $user['country']?></p>
             <p><?php
-                if ($_SESSION['is_online']){
+                if ($_SESSION['user']['id']){
                     echo "В сети";
                 } else {
-                    echo "Был(а) в сети: ". date("d.m.Y в H:i:s", $_SESSION['last_active']);
+                    echo "Был(а) в сети: ". date("d.m.Y в H:i:s", $user['online']);
                 }
             ?></p>
         </div>
