@@ -33,6 +33,11 @@ $user = $db->get_user();
         <div>
             <p>О себе: <?= $_SESSION['user']['about_me']?></p>
             <p>Страна: <?= $_SESSION['user']['country']?></p>
+            <p><?php
+            if(isset($_SESSION['user']['online']) == "online"){
+                echo "В сети";
+            }
+            ?></p>
         </div>
         <a href="index.php">Настройки</a>
         <a href="../index.php">Выход</a>

@@ -1,11 +1,5 @@
 <?php
-session_start();
-include_once "db.php";
-$db = new Database();
-$db->connect();
-$question = $db->get();
-$user = $db->get_user();
-unset($_SESSION['user']['id']);
+include_once "online.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">

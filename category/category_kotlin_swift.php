@@ -43,6 +43,9 @@ $user = $db->get_user();
 $sql = "SELECT * FROM `question` WHERE `category`='Kotlin/Swift'";
 $result = mysqli_query($db->conn, $sql);
 if (mysqli_num_rows($result) > 0) {
+    usort($question, function($a, $b) {
+        return $b[6] - $a[6];
+    });
     foreach($result as $key => $questions){
         echo "Дата: ". date('Y-m-d H:i:s', $questions['data']);
         echo "<br>";

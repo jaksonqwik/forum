@@ -22,14 +22,12 @@ if (!empty($_POST['login']) && !empty($_POST['pass'])) {
                 "avatar" => $user['avatar'],
                 "about_me" => $user['about_me'],
                 "country" => $user['country'],
+                "online" => $user['online']
             ];
-            
-            $online = time();
-            $id = $_SESSION['user']['id'];
 
-            $query1 = "UPDATE `user` SET `online`='$online' WHERE `id`=$id";
-            $result1 = mysqli_query($db->conn, $query1);
-
+            $status = "online";
+            $online = "UPDATE `user` SET `online`='$status' WHERE `id`=$user[id]";
+            $result = mysqli_query($db->conn, $online);
             header("Location: index.php");
         }
     }
