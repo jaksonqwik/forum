@@ -30,9 +30,14 @@ if (!empty($_POST['login']) && !empty($_POST['pass'])) {
             $result = mysqli_query($db->conn, $online);
             header("Location: index.php");
         }
+        else{
+            $msg = $_SESSION['msg'] = "Пороль или логин неверный";
+            header("Location: login.php");
+        }
     }
     elseif(mysqli_num_rows($result) == 0){
-        $msg = $_SESSION['msg'] = "Пороль или логин не верный";
+        $msg = $_SESSION['msg'] = "Пороль или логин неверный";
         header("Location: login.php");
     }
+    
 }
