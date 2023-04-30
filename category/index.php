@@ -41,6 +41,10 @@ $user = $db->get_user();
 </html>
 
 <?php
+usort($question, function($a, $b) {
+    return $b[6] - $a[6];
+});
+
 foreach($question as $key => $questions){
     echo "Дата: ". date('Y-m-d H:i:s', $questions[6]);
     echo "<br>";
