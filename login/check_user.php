@@ -19,6 +19,7 @@ if(isset($_GET['id'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/style.css">
     <title>Профиль пользователя</title>
 </head>
 <body>
@@ -39,9 +40,11 @@ if(isset($_GET['id'])){
             <p><?php
             if($user['online'] == "online"){
                 echo "В сети";
+                echo "<img src='../img/green.png' alt='' name='green'  width='15px'>";
             }
             else{
                 echo "Был в сети: ".$user['online'];
+                echo "<img src='../img/red.png' alt='' name='dot'  width='100px'>";
             }
             ?></p>
         </div>
