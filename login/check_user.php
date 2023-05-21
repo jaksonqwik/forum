@@ -40,11 +40,11 @@ if(isset($_GET['id'])){
             <p><?php
             if($user['online'] == "online"){
                 echo "В сети";
-                echo "<img src='../img/green.png' alt='' name='green'  width='15px'>";
+                echo "<img src='../img/green.png' alt='' name='green'  width='10px'>";
             }
             else{
                 echo "Был в сети: ".$user['online'];
-                echo "<img src='../img/red.png' alt='' name='dot'  width='100px'>";
+                echo "<img src='../img/red.png' alt='' name='red'  width='10px'>";
             }
             ?></p>
         </div>

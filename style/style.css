@@ -29,6 +29,14 @@ h1{
     text-decoration: none;
 }
 
-.green{
-    margin-left: 40px;
+img[name="green"] {
+    position: absolute;
+    left: 60px;
+    top: 244px
+}
+
+img[name="red"] {
+    position: absolute;
+    left: 150px;
+    top: 242px
 }
