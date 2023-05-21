@@ -24,9 +24,9 @@ if(isset($_GET['id'])){
 </head>
 <body>
     <div>
-        <h1>IT-Forum</h1>
-        <hr>
+        <span><h1>IT-Forum</h1></span>
     </div>
+    <hr>
     <div>
         <a href="/<?php echo isset($user['avatar']) ? $user['avatar'] : "../img/nouser.jpg";?>">
             <img src="/<?php echo isset($user['avatar']) ? $user['avatar'] : "../img/nouser.jpg";?>"
