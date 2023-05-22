@@ -24,22 +24,22 @@ $db->connect();
         <h2>Вход</h2>
         <hr>
     </div>
-    <form action="login_db.php" method="POST">
-        <div>
-            <label for="">Логин</label>
+    <div class="form_container">
+        <form action="login_db.php" method="POST">
+            <div class="form_group">
+                <label for="login">Логин</label>
+                <input type="text" name="login" id="login">
+            </div>
+            <div class="form_group">
+                <label for="pass">Пороль</label>
+                <input type="password" name="pass" id="pass">
+            </div>
             <br>
-            <input type="text" name="login">
-        </div>
-        <div>
-            <label for="">Пороль</label>
-            <br>
-            <input type="password" name="pass">
-        </div>
-        <br>
-        <div>
-            <input type="submit" value="Войти">
-        </div>
-    </form>
+            <div>
+                <input type="submit" value="Войти">
+            </div>
+        </form>
+    </div>
     <br>
     <div class="no_pass_login">
         <?php
@@ -53,7 +53,7 @@ $db->connect();
     <div class="link">
         <a href="../register/register.php">Регестрация</a>
     </div>
-</body>
+</body>     
 </html>
 <?php
 
