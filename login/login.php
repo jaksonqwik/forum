@@ -15,8 +15,9 @@ $db->connect();
     <title>Вход</title>
 </head>
 <body>
-    <div>
-        <span><h1>IT-Forum</h1></span>
+    <div class="title-wrapper">
+        <h1>IT-Forum</h1>
+        <a href="../index.php" class="home">Лента</a>
     </div>
     <hr>
     <div>
@@ -40,15 +41,18 @@ $db->connect();
         </div>
     </form>
     <br>
+    <div class="no_pass_login">
         <?php
         if(isset($_SESSION['msg'])){
             echo $_SESSION['msg'];
             unset($_SESSION['msg']);
         } 
         ?>
+    </div>
     <br>
-    <a href="../register/register.php">Регестрация</a>
-    <a href="../index.php">Лента</a>
+    <div class="link">
+        <a href="../register/register.php">Регестрация</a>
+    </div>
 </body>
 </html>
 <?php
