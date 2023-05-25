@@ -39,5 +39,8 @@ if (!empty($_POST['login']) && !empty($_POST['pass'])) {
         $msg = $_SESSION['msg'] = "Пороль или логин неверный";
         header("Location: login.php");
     }
-    
+}
+else{
+    $error = $_SESSION['msg'] = "Введите логин и пороль";
+    header("Location: login.php");
 }

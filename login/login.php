@@ -36,12 +36,12 @@ $db->connect();
             </div>
             <br>
             <div>
-                <input type="submit" value="Войти">
+                <input type="submit" value="Войти" class="sing_in">
             </div>
         </form>
     </div>
     <div class="no_pass_login">
-        <p style="text-align:center"><?php
+        <p class="text"><?php
         if(isset($_SESSION['msg'])){
             echo $_SESSION['msg'];
             unset($_SESSION['msg']);

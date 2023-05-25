@@ -28,6 +28,7 @@ form{
     display: inline-block;
     text-decoration: none;
     color: #99a1ab;
+    transition-duration: 0.4s;
 }
 
 .link a:hover{
@@ -44,6 +45,7 @@ form{
     color: #99a1ab;
     text-decoration: none;
     margin-top: -10px;
+    transition-duration: 0.4s;
 }
 
 .home:hover{
@@ -64,4 +66,23 @@ form{
     display: flex;
     flex-direction: column;
     margin-bottom: 10px; 
+}
+
+.sing_in{
+    color: white;
+    background-color: #87129c;
+    padding: 5px 55px;
+    border-radius: 20px;
+    transition-duration: 0.4s;
+    border: none;
+    box-shadow: 3px 3px 3px grey;
+}
+
+.sing_in:hover{
+    background-color: #9c27b0;
+}
+
+.text{
+    color: red;
+    text-align:center;
 }
